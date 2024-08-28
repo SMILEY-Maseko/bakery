@@ -1,20 +1,26 @@
-import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import ProductList from './components/ProductList';
-import Cart from './components/Cart';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import ProductPage from './pages/ProductPage';
+import CheckoutPage from './pages/CheckoutPage';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Header />
-      <Hero />
-      <ProductList />
-      <Cart />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/cart" element={<CheckoutPage />} />
+      </Routes>
       <Footer />
-    </div>
+    </Router>
   );
 }
 
